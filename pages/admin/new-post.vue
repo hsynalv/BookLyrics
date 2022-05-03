@@ -4,6 +4,7 @@
 
 <script>
 import PostForm from "~/components/admin/PostForm";
+import axios from "axios"
 export default {
   name: "new-post",
   layout : "admin",
@@ -12,7 +13,10 @@ export default {
   },
   methods : {
     savePost(post){
-      console.log(post)
+      this.$store.dispatch("addPost",post)
+      .then(response => {
+        this.$router.push("/admin")
+      })
     }
   }
 }

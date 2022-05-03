@@ -5,7 +5,7 @@
       <p>{{post.subTitle}}</p>
 
       <p class="mb-0">{{post.text}}</p>
-      <footer class="blockquote-footer"> Yazılım Mühendisi <cite title="Source Title">{{ post.author }}</cite></footer>
+      <footer class="blockquote-footer"> <cite title="Source Title">{{ post.author }}</cite></footer>
     </blockquote>
   </div>
 </template>
@@ -23,5 +23,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .blockquote-footer{
+    margin-top: 25px;
+  }
 </style>
