@@ -1,4 +1,4 @@
-# 3-KoseYazisi
+# 3-Skorsky Blog
 >A Nuxt.js and Vue.js project
 
 ## Build Setup
