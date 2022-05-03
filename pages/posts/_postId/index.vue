@@ -4,14 +4,16 @@
 
 <script>
 import PostDetail from "~/components/post/postDetail";
-import axios from "axios";
 export default {
   components : {
     PostDetail
   },
+  head : {
+    title : "Skorsky Blog | Post"
+  },
   name: "index",
   asyncData(context){
-    return axios.get("https://skorsky-blog-default-rtdb.firebaseio.com/posts/"+ context.params.postId+".json")
+    return context.app.$axios.get(process.env.baseUrl + "posts/"+ context.params.postId+".json")
     .then(response => {
       return {
         fetchedPost : response.data

@@ -8,6 +8,9 @@ import axios from "axios"
 export default {
   name: "new-post",
   layout : "admin",
+  head : {
+    title : "Skorsky Blog | Admin"
+  },
   components : {
     PostForm
   },

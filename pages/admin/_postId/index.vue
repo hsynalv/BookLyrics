@@ -8,7 +8,6 @@
 
 <script>
 import PostForm from "~/components/admin/PostForm";
-import axios from "axios";
 export default {
   name: "new-post",
   layout : "admin",
@@ -16,11 +15,11 @@ export default {
     PostForm
   },
   asyncData(context){
-    return axios.get("https://skorsky-blog-default-rtdb.firebaseio.com/posts/"+ context.params.postId+".json")
+    return context.app.$axios.get(process.env.baseUrl + "posts/"+ context.params.postId+".json")
       .then(response => {
-        return {
-          fetchedPost : response.data
-        }
+         return {
+           fetchedPost : response.data
+         }
       })
   },
   methods : {

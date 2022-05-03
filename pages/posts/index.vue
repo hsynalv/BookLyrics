@@ -8,6 +8,10 @@
 import PostList from "~/components/post/postList";
 export default {
   name: 'Index',
+  head : {
+    title : "Skorsky Blog | Posts"
+  },
+  layout : "homePage",
   components : {
     PostList,
   },

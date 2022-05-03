@@ -1,5 +1,4 @@
 import Vuex from "vuex";
-import axios from "axios";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -19,8 +18,8 @@ const createStore = () => {
       }
     },
     actions : {
-      nuxtServerInit(vuexContext){
-        return axios.get("https://skorsky-blog-default-rtdb.firebaseio.com/posts.json")
+      nuxtServerInit(vuexContext,context){
+        return context.app.$axios.get(process.env.baseUrl + "posts.json")
           .then(response => {
             let postArray = [];
             let data = response.data;
@@ -34,13 +33,13 @@ const createStore = () => {
         vuexContext.commit("setPosts", posts);
       },
       addPost(vuexContext, addedPost){
-        return axios.post("https://skorsky-blog-default-rtdb.firebaseio.com/posts.json",addedPost)
+        return this.$axios.post(process.env.baseUrl + "posts.json",addedPost)
           .then(response => {
             vuexContext.commit("addPost",{ ...addedPost, id : response.data.name });
           })
       },
       updatedPost(vuexContext, updatedPost){
-        return axios.put("https://skorsky-blog-default-rtdb.firebaseio.com/posts/"+ updatedPost.id +".json",updatedPost)
+        return this.$axios.put(process.env.baseUrl + "posts/"+ updatedPost.id +".json",updatedPost)
           .then(response => {
             vuexContext.commit("updatePost", updatedPost)
           })

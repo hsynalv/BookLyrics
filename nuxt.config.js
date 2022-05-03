@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '3-KoseYazisi',
+    title: 'Skorsky Blog',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,19 +12,34 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://bootswatch.com/4/sketchy/bootstrap.min.css'}
     ]
   },
 
-  loading: { color: '#666' },
+  loading: {
+    color: '#666',
+    height : '3px'
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~/assets/style/bootstrap.min.css"
+    //"~/assets/style/bootstrap.min.css"
+    "~/assets/style/transition.css"
   ],
+
+  env : {
+    baseUrl : "https://skorsky-blog-default-rtdb.firebaseio.com/"
+  },
+
+  transition : {
+    name : "layout",
+    mode : "out-in"
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/Components.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,7 +51,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    "@nuxtjs/axios"
   ],
+
+  axios : {
+
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

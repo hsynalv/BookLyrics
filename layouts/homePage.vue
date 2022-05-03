@@ -1,13 +1,17 @@
 <template>
-$END$
+  <div>
+    <Header/>
+    <Banner/>
+    <nuxt/>
+  </div>
 </template>
-
 <script>
+
 export default {
-name: "homePage"
+
 }
 </script>
+<style>
 
-<style scoped>
 
 </style>

@@ -14,6 +14,9 @@
 import PostList from "~/components/post/postList";
 export default {
   layout : "admin",
+  head : {
+    title : "Skorsky Blog | Admin"
+  },
   name: 'IndexPage',
   components : {
     PostList,
